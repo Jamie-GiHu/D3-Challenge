@@ -42,7 +42,6 @@ function xScale(data, chosenXAxis) {
       .range([0, width]);
   
     return xLinearScale;
-  
 }
 
 // Function used for updating y-scale var upon click on axis label
