@@ -391,34 +391,32 @@ d3.csv(pathSamples)
                 healthcareLabel
                 .classed("active", false)
                 .classed("inactive", true);
-                obesityLabel
+                obeseLabel
                 .classed("active", false)
                 .classed("inactive", true);
             }
             else if (chosenXAxis === "obesity") {
-                ageLabel
+                smokesLabel
                 .classed("active", false)
                 .classed("inactive", true);
-                povertyLabel
+                healthcareLabel
                 .classed("active", false)
                 .classed("inactive", true);
-                householdIncomeLabel
+                obeseLabel
                 .classed("active", true)
                 .classed("inactive", false);
             }
             else {
-                ageLabel
+                smokesLabel
+                .classed("active", false)
+                .classed("inactive", true);
+                healthcareLabel
                 .classed("active", true)
                 .classed("inactive", false);
-                povertyLabel
-                .classed("active", true)
-                .classed("inactive", false);
-                householdIncomeLabel
-                .classed("active", true)
-                .classed("inactive", false);
+                obeseLabel
+                .classed("active", false)
+                .classed("inactive", true);
             }
         }
     });
-}).catch(function(error) {
-console.log(error);
 });
