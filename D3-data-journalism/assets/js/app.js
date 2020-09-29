@@ -16,7 +16,7 @@ var height = svgHeight - margin.top - margin.bottom;
 // Create an SVG wrapper, append an SVG group that will hold our chart,
 // and shift the latter by left and top margins.
 var svg = d3
-  .select(".scatter")
+  .select("#scatter")
   .append("svg")
   .attr("width", svgWidth)
   .attr("height", svgHeight);
@@ -52,10 +52,9 @@ function yScale(data, chosenYAxis) {
       .domain([d3.min(data, d => d[chosenYAxis]) * 0.8,
         d3.max(data, d => d[chosenYAxis]) * 1.2
       ])
-      .range([0, width]);
+      .range([height/2, 0]);
   
     return yLinearScale;
-  
 }
 
 // Function used for updating xAxis var upon click on axis label
@@ -240,7 +239,7 @@ d3.csv(pathSamples)
         .text("Obese (%)");    
 
     // updateToolTip function above csv import
-    var circlesGroup = updateToolTip(chosenYAxis, circlesGroup);
+    var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
 
     // x axis labels event listener
     labelsGroup.selectAll("text")
