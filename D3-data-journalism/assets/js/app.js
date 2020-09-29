@@ -256,7 +256,7 @@ d3.csv(pathSamples)
 
             // functions here found above csv import
             // updates x scale for new data
-            xLinearScale = xScale(hairData, chosenXAxis);
+            xLinearScale = xScale(data, chosenXAxis);
 
             // updates x axis with transition
             xAxis = renderAxes(xLinearScale, xAxis);
@@ -268,19 +268,36 @@ d3.csv(pathSamples)
             circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
 
             // changes classes to change bold text
-            if (chosenXAxis === "num_albums") {
-                albumsLabel
+            if (chosenXAxis === "age") {
+                ageLabel
                 .classed("active", true)
                 .classed("inactive", false);
-                hairLengthLabel
+                povertyLabel
+                .classed("active", false)
+                .classed("inactive", true);
+                householdIncomeLabel
                 .classed("active", false)
                 .classed("inactive", true);
             }
-            else {
-                albumsLabel
+            else if (chosenXAxis === "income") {
+                ageLabel
                 .classed("active", false)
                 .classed("inactive", true);
-                hairLengthLabel
+                povertyLabel
+                .classed("active", false)
+                .classed("inactive", true);
+                householdIncomeLabel
+                .classed("active", true)
+                .classed("inactive", false);
+            }
+            else {
+                ageLabel
+                .classed("active", true)
+                .classed("inactive", false);
+                povertyLabel
+                .classed("active", true)
+                .classed("inactive", false);
+                householdIncomeLabel
                 .classed("active", true)
                 .classed("inactive", false);
             }
