@@ -1,14 +1,14 @@
 // STEP ONE
 // Create and format the SVG
-var svgWidth = 960;
-var svgHeight = 500;
+var svgWidth = 1050;
+var svgHeight = 650;
 
 // Set margins in svg
 var margin = {
     top: 20,
     right: 40,
     bottom: 150,
-    left: 100
+    left: 120
   };
 
 // Calculate chart height and width
@@ -107,7 +107,22 @@ function renderText(textGroup, newXScale, chosenXAxis, newYScale, chosenYAxis) {
 // STEP FOUR
 // Define functions used for updating circles group with new tooltip
 
+// Function to format x-axis values for tooltips
+function formatX(value, chosenXAxis) {
 
+    if (chosenXAxis === 'income') {
+        return `$${value}`;
+    }
+    else if (chosenXAxis === 'age') {
+        return `${value} years old`;
+    }
+    else {
+        return `${value}%`;
+    }
+}
+
+
+// Function used to create and update toolTip and attach to circlesGroup
 function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 
     // Event select x label
@@ -133,7 +148,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
       yLabel = "Are Smokers:";
     }
     else {
-      yLabel = "Are Obese:";
+      yLabel = "Obesity:";
     }  
     
     // Create tooltip by incorporating D3-tip.js plugin and assign class "d3-tip"
@@ -141,7 +156,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
       .attr("class", "d3-tip")
       .offset([-8, 0])
       .html(function(d) {
-        return (`${d.state}<br>${xLabel} ${d[chosenXAxis]}<br>${yLabel} ${d[chosenYAxis]}`);
+        return (`${d.state}<br>${xLabel} ${formatX(d[chosenXAxis], chosenXAxis)}<br>${yLabel} ${d[chosenYAxis]}%`);
       });
   
     circlesGroup.call(toolTip);
@@ -152,6 +167,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
       .on("mouseout", toolTip.hide);
   
     return circlesGroup;
+
 }
 
 // STEP FIVE
@@ -165,9 +181,6 @@ var dataDB;
 d3.csv(pathSamples)
     .then(data => {dataDB = data
 
-    console.log(dataDB);
-    console.log(dataDB[0].healthcare);
-    
     // Parse data
     dataDB.forEach(d => {
         d.obesity = +d.obesity;
@@ -210,7 +223,7 @@ d3.csv(pathSamples)
         .attr("cx", d => xLinearScale(d[chosenXAxis]))
         .attr("cy", d => yLinearScale(d[chosenYAxis]))
         .attr("r", 15)
-        .attr("opacity", ".5");
+        //.attr("opacity", ".5");
 
     // Append initial text
     var textGroup = chartGroup.selectAll(".stateText")
@@ -222,7 +235,7 @@ d3.csv(pathSamples)
         .attr("cy", d => yLinearScale(d[chosenYAxis]))
         .attr("dy", 3)
         .attr("font-size", "10px")
-        .text(d => {d = d.abbr});
+        .text(d => d.abbr);
 
     // Create group for three x-axis labels
     var xLabelsGroup = chartGroup.append("g")
@@ -259,7 +272,7 @@ d3.csv(pathSamples)
 
     var healthcareLabel = yLabelsGroup.append("text")
         .attr("x", 0 - (height / 2))
-        .attr("y", 0 - margin.left + 40)
+        .attr("y", 0 - margin.left + 50)
         .attr("dy", "1em")
         .attr("value", "healthcare") // value to grab for event listener
         .classed("active", true)
@@ -268,7 +281,7 @@ d3.csv(pathSamples)
 
     var smokesLabel = yLabelsGroup.append("text")
         .attr("x", 0 - (height / 2))
-        .attr("y", 0 - margin.left + 20)
+        .attr("y", 0 - margin.left + 30)
         .attr("dy", "1em")
         .attr("value", "smokes") // value to grab for event listener
         .classed("inactive", true)
@@ -277,7 +290,7 @@ d3.csv(pathSamples)
 
     var obeseLabel = yLabelsGroup.append("text")
         .attr("x", 0 - (height / 2))
-        .attr("y", 0 - margin.left)
+        .attr("y", 0 - margin.left + 10)
         .attr("dy", "1em")
         .attr("value", "obesity") // value to grab for event listener
         .classed("inactive", true)
@@ -287,8 +300,10 @@ d3.csv(pathSamples)
     // toolTip function above csv import
     var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
 
+    renderText(textGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
+
     // x axis labels event listener
-    xlabelsGroup.selectAll("text")
+    xLabelsGroup.selectAll("text")
         .on("click", function() {
             // get value of selection
             var value = d3.select(this).attr("value");
@@ -353,7 +368,7 @@ d3.csv(pathSamples)
         });
 
     // y axis labels event listener
-    ylabelsGroup.selectAll("text")
+    yLabelsGroup.selectAll("text")
         .on("click", function() {
             // get value of selection
             var value = d3.select(this).attr("value");
