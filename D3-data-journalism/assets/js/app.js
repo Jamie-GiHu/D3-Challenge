@@ -288,7 +288,7 @@ d3.csv(pathSamples)
     var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
 
     // x axis labels event listener
-    labelsGroup.selectAll("text")
+    xlabelsGroup.selectAll("text")
         .on("click", function() {
             // get value of selection
             var value = d3.select(this).attr("value");
@@ -353,7 +353,7 @@ d3.csv(pathSamples)
         });
 
     // y axis labels event listener
-    labelsGroup.selectAll("text")
+    ylabelsGroup.selectAll("text")
         .on("click", function() {
             // get value of selection
             var value = d3.select(this).attr("value");
