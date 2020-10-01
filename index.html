@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>D3 Times</title>
+
+  <!-- Bootstrap CSS --> 
+  <link rel="stylesheet" href="https://jamie-gihu.github.io/D3-Challenge/D3-data-journalism/assets/css/bootstrap_lux.css">
+  <link rel="stylesheet" href="https://jamie-gihu.github.io/D3-Challenge/D3-data-journalism/assets/css/style.css">
+  <link rel="stylesheet" href="https://jamie-gihu.github.io/D3-Challenge/D3-data-journalism/assets/css/d3Style.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div id="banner" class="col-xs-12 col-md-12 text-center">
+        <picture>
+          <img src="https://jamie-gihu.github.io/D3-Challenge/D3-data-journalism/assets/images/logo.PNG" alt="Logo" style="max-width: 50%; max-height: 50%;"> 
+        </picture>
+        <h1>D3Times</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12  col-md-9">
+        <div id="scatter">
+          <!-- We append our chart here. -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12  col-md-12">
+        <div class="article">
+          <h2>Correlations Discovered Between Health Risks and Income, Age</h2>
+          <p>We are all aware that wealth, and the lack of it, would cause poor standard of living, high mortality rate and an 
+            increase in health risks. We remember the World Health Organization (WHO) messaging that highlights Africa's health 
+            challenges. Income, through the gross national product earned by a country has a direct impact on it's people welfare via 
+            the ability to provide basic sanitation, healthcare and nutrition. However, does money matter to health between states in 
+            a first world country like the United States?</p>
+
+          <p>It seems that money is still a determinant to health in the most advanced economy in the world as we observe a positive correlation 
+            between the proportion of people living in poverty and the proportion of people who are lacks healthcare. In plain terms, US States with
+            higher rates of poverty have more people who are not able to access healthcare. The opposite is true where states with higher median 
+            household incomes have better access to healthcare.</p>
+
+          <p>This relationship between money and healthcare extends to other health risks like tendency to smoke and obesity. The data shows
+            that there is a potential causality between wealth and these factors which are widely accepted health hazards. More studies will need
+            to be conducted to better distinct whether this relationship is a mere correlation or a causation. To illustrate, households belonging to 
+            lower socioeconomic groups may tend to smoke more or are obese due to the absence of a healthy social activities like swimming, golfing
+            or going for a weekend retreat with the family to enjoy nature rather than being driven by material deprivation.</p>
+
+          <p>Meanwhile, the relationship between age and health risks shows a much larger margin of error. With that caveat, we can still observe
+             that states with younger demographics tend to have lower access to healthcare. This could be explained by the eligibility of adults 
+             over 65 years old to Medicare. The older demographic is also less likely to be associated with obesity which is fortunate due to the 
+             high cost of care for obese elders. However, this could potentially be a creeping number as there is an upward trend of adults and 
+             children being obese in the US. The data also shows a trade-off in health risk for the younger demographics. While the younger population
+             is more inclined to be obese, they are also less likely to smoke.</p>
+
+          <p>In conclusion, while Ralph Waldo Emerson tells us that <em>"The first wealth is health"</em>, data reveals the symbiotic relationship between
+            health and wealth as without wealth, the health of the American people are at greater risk. This is especially poignant seven months into
+            the worldwide pandemic caused by the spread of COVID-19 and the world is still experiencing it's toll on both human life and economic devastation,
+            that health and wealth do go hand in hand.</p>
+
+          <p>Data source: The 2014 ACS 1-year estimates from the <a href = "https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml">U.S. Census Bureau and the Behavioral Risk Factor Surveillance System.</a>
+            </p>
+        </div>
+      </div>
+    </div>
+
+  <!-- ========== Footer ========== -->
+    <hr>
+    <footer class="footer">
+      <div class="row">
+          <div class="col-lg-12">
+              <ul class="list-unstyled">
+                  <li class="float-lg-right">
+                      <i class="fas fa-angle-double-up" style="color:#F09723;"></i>
+                      <a href="#top" class="">Back to top</a>
+                  </li>
+                  <li class="float-lg-left" style="margin-right: 20px;">
+                      <i class="fas fa-pump-medical" style="color:#F09723;"></i>
+                      <a href="https://github.com/Jamie-GiHu/D3-Challenge.git" target="_blank">Git Hub D3 Data Visualisation & Analysis Project</a>
+                  </li>
+                  <li class="float-lg-left" style="margin-right: 20px;">
+                    <i class="fas fa-toilet-paper" style="color:#F09723;"></i>
+                    <a href="https://jamie-gihu.github.io/D3-Challenge/" target="_blank">Git Hub Pages for published article</a>
+                </li>                      
+              </ul>
+          </div>
+          <div class="col-lg-12" style="margin-top:20px;">
+              <p>Created by 
+                  <a href="https://github.com/Jamie-GiHu">Jamie Tan </a>
+                  for Data Analytics Bootcamp @ Monash University.</p> 
+          </div>  
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Bringing in Javascript to enable components in bootstrap -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/231099ded4.js" crossorigin="anonymous">SameSite=None; Secure</script>
+  
+  <!-- Bring in D3, tooltip and custom app -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
+  <script type="text/javascript" src="https://jamie-gihu.github.io/D3-Challenge/D3-data-journalism/assets/js/app.js"></script>
+
+</body>
+
+</html>
+
+
+  
