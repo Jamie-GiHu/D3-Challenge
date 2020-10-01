@@ -17,5 +17,5 @@ Using HTML, CSS, JavaScript, and D3 libraries, create an interactive data visual
 4. 2014 ACS 1-year estimates dataset (filename: data.csv in sub-folder 'D3-data-journalism/assets/data/')
 
 #### Published article:
-![Screenshot](/D3-data-journalism/assets/images/Fig1.jpg)
-![Screenshot](/D3-data-journalism/assets/images/Fig2.jpg)
+![Screenshot](/D3-data-journalism/assets/images/Fig1.gif)
+![Screenshot](/D3-data-journalism/assets/images/Fig2.gif)
