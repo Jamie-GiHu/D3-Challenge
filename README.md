@@ -18,4 +18,4 @@ Using HTML, CSS, JavaScript, and D3 libraries, create an interactive data visual
 
 #### Published article:
 ![Screenshot](/D3-data-journalism/assets/images/Fig1.gif)
-![Screenshot](/D3-data-journalism/assets/images/Fig2.gif)
+![Screenshot](/D3-data-journalism/assets/images/Fig2.GIF)
